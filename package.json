@@ -1,0 +1,23 @@
+{
+  "name": "ckeditor-oxyskin",
+  "description": "Builder tool for oxyskin ckeditor skin.",
+  "maintainers": "David Charbonnier <dcharbonnier@gmail.com>",
+  "homepage": "https://github.com/oxys-net/ckeditor-oxyskin",
+  "author": {
+    "name": "David Charbonnier"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oxys-net/ckeditor-oxyskin.git"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "stylus": "0.29.0",
+    "stylus-sprite": "0.1.7",
+    "nib": "0.8.2",
+    "canvas": "0.13.1"
+  }
+}

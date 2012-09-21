@@ -18,6 +18,7 @@
     "stylus": "0.29.0",
     "stylus-sprite": "0.1.7",
     "nib": "0.8.2",
-    "canvas": "0.13.1"
+    "canvas": "0.13.1",
+    "node-gd" : "0.1.8",
   }
 }

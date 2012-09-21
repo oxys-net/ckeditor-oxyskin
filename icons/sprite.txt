@@ -1,0 +1,10 @@
+align-left
+center
+align-right
+justify
+--
+bold
+italic
+--
+undo
+redo

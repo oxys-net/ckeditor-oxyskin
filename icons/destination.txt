@@ -1,0 +1,6 @@
+spellchecker
+undo
+redo
+undo
+undo-rtl
+

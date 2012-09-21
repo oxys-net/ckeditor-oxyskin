@@ -1,0 +1,10 @@
+justifyleft
+justifycenter
+justifyright
+justifyblock
+--
+bold
+italic
+--
+undo
+undo-rtl

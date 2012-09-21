@@ -1,4 +1,5 @@
 @import 'nib'
+@import 'constants'
 
 .cke_dialog
   visibility: visible
@@ -8,9 +9,7 @@
   border: solid 1px #ddd
   padding: 5px
   background-color: #fff
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-  border-radius: 5px
+  border-radius: border-radius
 
 .cke_dialog strong
   font-weight: bold
@@ -29,12 +28,7 @@
   border-bottom: none
   overflow: auto
   padding: 17px 10px 5px 10px
-  -moz-border-radius-topleft: 5px
-  -moz-border-radius-topright: 5px
-  -webkit-border-top-left-radius: 5px
-  -webkit-border-top-right-radius: 5px
-  border-top-left-radius: 5px
-  border-top-right-radius: 5px
+  border-radius: top border-radius
   margin-top: 22px
 
 .cke_dialog_contents_body
@@ -47,12 +41,7 @@
   background-color: #ebebeb
   border: solid 1px #fff
   border-bottom: none
-  -moz-border-radius-bottomleft: 5px
-  -moz-border-radius-bottomright: 5px
-  -webkit-border-bottom-left-radius: 5px
-  -webkit-border-bottom-right-radius: 5px
-  border-bottom-left-radius: 5px
-  border-bottom-right-radius: 5px
+  border-radius: bottom border-radius
 
 .cke_rtl .cke_dialog_footer
   text-align: left
@@ -202,9 +191,7 @@ div.cke_dialog_ui_input_textarea
 a.cke_dialog_ui_button
   border-collapse: separate
   cursor: default
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-  border-radius: 5px
+  border-radius: border-radius
   background: transparent url(../images/sprites.png) repeat-x scroll 0 -1069px
   padding: 5px 0
   text-align: center

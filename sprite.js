@@ -6,15 +6,22 @@ function Sprite(options) {
 
 	options = options || {};
 
-	this.description_file = options.description_file;
+	this.source_description_file = options.source_description_file
+			|| './icons/source.txt';
 
-	this.input_file = options.input_file;
+	this.destination_description_file = options.destination_description_file
+			|| './icons/destination.txt';
+
+	this.input_file = options.input_file || './icons/source-icons.png';
 
 	this.input_format = this.input_file.split(".").pop().toLowerCase() || "png";
 	this.output_format = options.output_format || this.input_format;
-  
+
 	this.output_dir = options.output_dir || pathlib.dirname(this.input_file);
-	
+
+	this.output_file = options.output_file || './icons/sprite.'
+			+ this.output_format;
+
 	if (["png", "jpeg", "jpg", "gif"].indexOf(this.input_format) < 0) {
 		throw new Error("Invalid intput format '" + this.input_format + "'");
 	}
@@ -55,6 +62,35 @@ Sprite.prototype.explode = function() {
 	this.openImage(this.input_file, this.__processExplode.bind(this));
 };
 
+Sprite.prototype.createSprite = function(callback) {
+
+	var x = 0, y = 0;
+	var lines = fs.readFileSync(this.destination_description_file, 'utf-8')
+			.trim().split('\n');
+
+	var dest = this.createImage(16, (16 + 32) * (lines.length - 1) - 32,
+			this.output_format)
+
+	var pos = 0;
+
+	lines.forEach(function(line) {
+
+				this.openImage(this.input_file, function(err, img, path) {
+							img.copyResampled(dest, 0, pos * (16 + 32), 0, 0,
+									16, 16, 16, 16);
+              
+							if (pos == lines.length -1) {
+								dest.savePng(dest_path, 0, function() {
+                  callback("image saved '" + dest_path + "'")
+                });
+							}
+							pos++;
+						});
+
+			}.bind(this))
+
+};
+
 Sprite.prototype.createImage = function(width, height, format) {
 	format = format || "png";
 
@@ -81,8 +117,8 @@ Sprite.prototype.__processExplode = function(err, img, path) {
 
 	var x = 0, y = 0;
 
-	fs.readFileSync(this.description_file, 'utf-8').trim().split('\n').forEach(
-			function(line) {
+	fs.readFileSync(this.source_description_file, 'utf-8').trim().split('\n')
+			.forEach(function(line) {
 
 				if (line == '--') {
 					x = 0;
@@ -90,13 +126,14 @@ Sprite.prototype.__processExplode = function(err, img, path) {
 				} else {
 
 					var posX = x * 16, posY = y * 16, dest = this.createImage(
-							16, 16, this.output_format), dest_path = pathlib.join(this.output_dir, line + "." + this.output_format);
+							16, 16, this.output_format), dest_path = pathlib
+							.join(this.output_dir, line + "."
+											+ this.output_format);
 
 					img.copyResampled(dest, 0, 0, posX, posY, 16, 16, 16, 16);
-        
-					dest.savePng(dest_path, 0,
-							function() {
-								console.log("image saved '"+ dest_path +"'");
+
+					dest.savePng(dest_path, 0, function() {
+								console.log("image saved '" + dest_path + "'");
 							});
 
 					x++;

@@ -1,10 +1,10 @@
-align-left
-center
-align-right
-justify
+justifyleft
+justifycenter
+justifyright
+justifyblock
 --
 bold
 italic
 --
 undo
-redo
+undo-rtl

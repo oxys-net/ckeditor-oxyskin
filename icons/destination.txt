@@ -4,3 +4,6 @@ redo
 undo
 undo-rtl
 
+templates-rtl
+templates
+table

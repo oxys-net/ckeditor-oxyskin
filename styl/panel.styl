@@ -5,19 +5,22 @@
 
 .cke_panel
   visibility: visible
-  border: 1px solid #8f8f73
+  border: 1px solid rgba(0,0,0,0.15)
+  border-top none
   background-color: #fff
   width: 120px
-  height: 100px
+  height: auto
   overflow: hidden
-  border-radius: border-radius
+  //border-radius: border-radius
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1)
 
 .cke_menu_panel
-  padding: 2px
+  //padding: 2px
   margin: 0
 
 .cke_combopanel
-  border: 1px solid #8f8f73
+  border: 1px solid rgba(0,0,0,0.2)
+  border-top none
   border-radius: top-left border-radius
   height: auto
 
@@ -35,17 +38,20 @@
 
 .cke_panel_list
   list-style-type: none
-  margin: 3px
+  margin: 0px
   padding: 0px
   white-space: nowrap
-
+  li.cke_panel_listItem
+    &>a
+      padding-top 8px
+      padding-bottom 8px
+      padding-left 21px
 .cke_panel_listItem
   margin: 0px
 
 .cke_panel_listItem a
   padding: 2px
   display: block
-  border: 1px solid #fff
   color: inherit !important
   text-decoration: none
   overflow: hidden
@@ -55,18 +61,24 @@
   width: 100%
   color: #000
 
+
 *:first-child+html .cke_panel_listItem a
   color: #000
 
 .cke_panel_listItem.cke_selected a
-  border: 1px solid #ccc
-  background-color: #e9f5ff
+  background-color transparent
+  border 0
+  outline none
+  &:before
+    float left
+    margin-left -18px
+    content url(icons/selected.png)
 
 .cke_panel_listItem a:hover,
 .cke_panel_listItem a:focus,
 .cke_panel_listItem a:active
-  border-color: #316ac5
-  background-color: #dff1ff
+  background-color rgba(0,0,0,0.1)
+  border 0
 
 .cke_hc .cke_panel_listItem.cke_selected a,
 .cke_hc .cke_panel_listItem a:hover,
@@ -77,14 +89,17 @@
 
 .cke_panel_grouptitle
   font-size: 11px
-  font-family: 'Microsoft Sans Serif' , Tahoma, Arial, Verdana, Sans-Serif
-  font-weight: bold
+  font-family: Verdana, Tahoma, Arial, Sans-Serif, 'Microsoft Sans Serif' 
+  font-weight: normal
+  border-bottom 1px solid rgba(0,0,0,0.15)
+  border-top 1px solid rgba(0,0,0,0.15)
+  background-color rgba(0,0,0,0.05)
+  height 14px
   white-space: nowrap
-  background-color: #dcdcdc
-  color: #000
+  color rgba(0,0,0,0.6)
   margin: 0px
-  padding: 3px
-
+  padding: 5px
+  
 .cke_panel_listItem p,
 .cke_panel_listItem h1,
 .cke_panel_listItem h2,

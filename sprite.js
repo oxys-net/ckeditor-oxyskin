@@ -142,3 +142,6 @@ Sprite.prototype.__processExplode = function(err, img, path) {
 			}.bind(this))
 
 }
+
+
+new Sprite();

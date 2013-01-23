@@ -20,6 +20,7 @@ selectall
 table
 flash
 image
+video
 --
 link
 unlink
